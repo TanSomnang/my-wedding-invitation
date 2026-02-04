@@ -993,31 +993,103 @@
         aria-atomic="false"></section>
     <div class="">
         <div class="min-h-screen bg-gradient-to-br from-pink-50 to-yellow-50 relative">
-            <div class="relative"><audio id="welcome-music" loop="" preload="auto" playsinline="">
+            <div class="relative">
+                <audio id="welcome-music" loop="" preload="auto" playsinline="" autoplay="" muted="">
                     <source
                         src="./images/Kou_Pi_Preng_Prutt-Him_Sivorn_Ft_Ek_Side.mp3"
                         type="audio/mp3">
                 </audio>
+                <script>
+                    // Chrome Autoplay Policy compliant: muted autoplay + unmute on user interaction
+                    const audio = document.getElementById('welcome-music');
+                    
+                    // Muted autoplay happens via HTML attribute, but ensure it plays
+                    const playMuted = () => {
+                        audio.muted = true;
+                        const playPromise = audio.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.log('Autoplay failed:', error);
+                            });
+                        }
+                    };
+                    
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', playMuted);
+                    } else {
+                        playMuted();
+                    }
+                    
+                    // Unmute on first user interaction (click, touch, or scroll)
+                    const unmute = () => {
+                        audio.muted = false;
+                    };
+                    document.addEventListener('click', unmute, { once: true });
+                    document.addEventListener('touchstart', unmute, { once: true });
+                </script>
                 <div class="relative min-h-screen max-w-md mx-auto">
                     <div class="front-evelop h-screen relative overflow-hidden">
-                        <div class="fixed top-4 right-4 z-40"
-                            style="--primary-color: #6f7c2b; will-change: transform, opacity; pointer-events: auto; display: block; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
-                            <button type="button" aria-label="Toggle music" class="
-					backdrop-blur-md rounded-lg px-3 py-2
-					flex items-center gap-2
-					transition-all duration-300 transform
-					hover:scale-105
-					bg-red-400/50
-				" style="border: 1px solid red;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        <div class="fixed top-4 right-4 z-40">
+                            <button type="button" id="music-toggle" aria-label="Toggle music" class="
+                                relative w-12 h-12 rounded-full
+                                flex items-center justify-center
+                                backdrop-blur-md
+                                transition-all duration-300 transform
+                                hover:scale-110 active:scale-95
+                                shadow-lg
+                                bg-white/20 hover:bg-white/30
+                                border border-white/40 hover:border-white/60
+                            ">
+                                <svg id="music-icon-unmuted" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-volume-x w-5 h-5 text-red-600"
+                                    stroke-linejoin="round" class="lucide lucide-volume-2 w-6 h-6 text-pink-500 transition-opacity duration-300"
                                     aria-hidden="true">
-                                    <path
-                                        d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z">
-                                    </path>
-                                    <line x1="22" x2="16" y1="9" y2="15"></line>
-                                    <line x1="16" x2="22" y1="9" y2="15"></line>
-                                </svg></button></div>
+                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                    <path d="M15.54 8.46a7 7 0 0 1 0 9.9"></path>
+                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                                </svg>
+                                <svg id="music-icon-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-volume-x w-6 h-6 text-gray-400 transition-opacity duration-300 absolute opacity-0"
+                                    aria-hidden="true">
+                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <script>
+                            const musicToggle = document.getElementById('music-toggle');
+                            const audioElement = document.getElementById('welcome-music');
+                            const unmuteIcon = document.getElementById('music-icon-unmuted');
+                            const muteIcon = document.getElementById('music-icon-muted');
+                            
+                            // Update button state based on audio muted status
+                            const updateButtonState = () => {
+                                if (audioElement.muted) {
+                                    unmuteIcon.style.opacity = '0';
+                                    muteIcon.style.opacity = '1';
+                                    musicToggle.classList.remove('bg-white/30', 'border-white/60');
+                                    musicToggle.classList.add('bg-white/20', 'border-white/40');
+                                } else {
+                                    unmuteIcon.style.opacity = '1';
+                                    muteIcon.style.opacity = '0';
+                                    musicToggle.classList.add('bg-white/30', 'border-white/60');
+                                    musicToggle.classList.remove('bg-white/20', 'border-white/40');
+                                }
+                            };
+                            
+                            musicToggle.addEventListener('click', function() {
+                                audioElement.muted = !audioElement.muted;
+                                if (!audioElement.paused === false) {
+                                    audioElement.play().catch(() => {});
+                                }
+                                updateButtonState();
+                            });
+                            
+                            // Initialize button state on load
+                            updateButtonState();
+                        </script>
                         <div class="absolute top-0 left-0 w-full h-full"><img alt="Background Video" loading="lazy"
                                 width="1400" height="800" decoding="async" data-nimg="1"
                                 class="w-full h-full object-cover"
