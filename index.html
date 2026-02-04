@@ -813,7 +813,7 @@
         data-disable-auto-track="1"></script>
     <script src="/_vercel/speed-insights/script.js" defer="" data-sdkn="@vercel/speed-insights/next" data-sdkv="1.3.1"
         data-route="/invitation/[slug]"></script>
-    <link rel="icon" href="/favicon.ico" sizes="196x196" type="image/ico">
+    <link rel="icon" href="./images/favicon.ico" sizes="196x196" type="image/ico">
     <link rel="apple-touch-icon" href="/icons/apple-icon-180.png">
     <script src="/adf5bcf9f7f7c275.js"></script>
     <script src="/143c4587f3b5699d.js"></script>
@@ -1039,6 +1039,47 @@
 </head>
 
 <body class="antialiased">
+    <!-- Video Splash Screen -->
+    <div id="video-splash" class="video-splash-screen">
+        <video id="intro-video" class="intro-video" autoplay muted playsinline>
+            <source src="./images/video1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        // Handle video completion and transition to main page
+        const videoSplash = document.getElementById('video-splash');
+        const introVideo = document.getElementById('intro-video');
+        
+        // Listen for video end event
+        introVideo.addEventListener('ended', function() {
+            // Fade out the video splash screen
+            videoSplash.classList.add('fade-out');
+            
+            // After fade animation completes, hide the splash screen
+            setTimeout(function() {
+                videoSplash.style.display = 'none';
+                
+                // Scroll to main content if needed
+                const mainSection = document.getElementById('main');
+                if (mainSection) {
+                    mainSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 1000); // Match the fade-out animation duration
+        });
+        
+        // Optional: Add a skip button for users
+        document.addEventListener('click', function skipVideo(event) {
+            if (videoSplash.style.display !== 'none' && event.target !== introVideo) {
+                videoSplash.classList.add('fade-out');
+                setTimeout(function() {
+                    videoSplash.style.display = 'none';
+                }, 1000);
+                document.removeEventListener('click', skipVideo);
+            }
+        });
+    </script>
+
     <div hidden=""><!--$--><!--/$--></div><!--$--><!--/$--><!--$--><!--/$-->
     <section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text"
         aria-atomic="false"></section>
