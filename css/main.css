@@ -4229,18 +4229,6 @@ html.with-fancybox body.hide-scrollbar {
     animation-delay: var(--delay, 0s);
 }
 
-.leaf-fall2 {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    object-fit: contain;
-    opacity: 0.85;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-    animation: leaf-fall-animation var(--duration, 15s) linear infinite;
-    left: var(--left, 50%);
-    animation-delay: var(--delay, 0s);
-}
-
 @keyframes leaf-fall-animation {
     0% {
         top: -50px;
@@ -4281,16 +4269,92 @@ html.with-fancybox body.hide-scrollbar {
 
 .butterfly {
     opacity: 0;
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+    background-color: #ffffff26;
+    border-radius: 50%;
     animation: 25s ease-in infinite rise;
     position: absolute;
     bottom: -70px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Butterfly animation timing handled via inline styles */
+.butterfly:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    animation-duration: 25s;
+    animation-delay: 0s;
+    left: 10%;
+}
+
+.butterfly:nth-child(2) {
+    width: 20px;
+    height: 20px;
+    animation-duration: 15s;
+    animation-delay: 1s;
+    left: 20%;
+}
+
+.butterfly:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    animation-duration: 30s;
+    animation-delay: 2s;
+    left: 35%;
+}
+
+.butterfly:nth-child(4) {
+    width: 30px;
+    height: 30px;
+    animation-duration: 18s;
+    animation-delay: 0.5s;
+    left: 50%;
+}
+
+.butterfly:nth-child(5) {
+    width: 15px;
+    height: 15px;
+    animation-duration: 22s;
+    animation-delay: 1.5s;
+    left: 55%;
+}
+
+.butterfly:nth-child(6) {
+    width: 45px;
+    height: 45px;
+    animation-duration: 28s;
+    animation-delay: 1s;
+    left: 65%;
+}
+
+.butterfly:nth-child(7) {
+    width: 25px;
+    height: 25px;
+    animation-duration: 17s;
+    animation-delay: 2.5s;
+    left: 75%;
+}
+
+.butterfly:nth-child(8) {
+    width: 35px;
+    height: 35px;
+    animation-duration: 20s;
+    animation-delay: 0.8s;
+    left: 80%;
+}
+
+.butterfly:nth-child(9) {
+    width: 60px;
+    height: 60px;
+    animation-duration: 26s;
+    animation-delay: 3s;
+    left: 90%;
+}
+
+.butterfly:nth-child(10) {
+    width: 28px;
+    height: 28px;
+    animation-duration: 19s;
+    animation-delay: 1.2s;
+    left: 5%;
+}
 
 @keyframes rise {
     0% {
