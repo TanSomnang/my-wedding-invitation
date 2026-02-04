@@ -1051,6 +1051,9 @@
         const videoSplash = document.getElementById('video-splash');
         const introVideo = document.getElementById('intro-video');
         
+        // Set video playback speed to 1.5x
+        introVideo.playbackRate = 1.5;
+        
         // Listen for video end event
         introVideo.addEventListener('ended', function() {
             // Fade out the video splash screen
