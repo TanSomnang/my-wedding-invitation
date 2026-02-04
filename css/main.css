@@ -4229,6 +4229,18 @@ html.with-fancybox body.hide-scrollbar {
     animation-delay: var(--delay, 0s);
 }
 
+.leaf-fall2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+    opacity: 0.85;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    animation: leaf-fall-animation var(--duration, 15s) linear infinite;
+    left: var(--left, 50%);
+    animation-delay: var(--delay, 0s);
+}
+
 @keyframes leaf-fall-animation {
     0% {
         top: -50px;
