@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="stylesheet" href="./css/2473c16c0c2f6b5f.css" data-precedence="next">
     <link rel="stylesheet" href="./css/2b5b79d1d607e281.css" data-precedence="next">
+    <link rel="stylesheet" href="./css/main.css" data-precedence="next">
     <!-- <link rel="preload" as="script" fetchpriority="low" href="./af4a0202735b81c.js"> -->
     <script src="./js/7e9f06a06f5e5740.js" async=""></script>
     <script src="./js/e389e09072bd51fe.js" async=""></script>
@@ -48,10 +49,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Delius&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer&amp;display=swap" rel="stylesheet">
     <script src="/a6dad97d9634a72d.js" nomodule=""></script>
-    <link rel="preload" href="./fonts/797e433ab948586e-s.p.dbea232f.woff2" as="font" crossorigin=""
-        type="font/woff2">
-    <link rel="preload" href="./fonts/caa3a2e1cccd8315-s.p.853070df.woff2" as="font" crossorigin=""
-        type="font/woff2">
+    <link rel="preload" href="./fonts/797e433ab948586e-s.p.dbea232f.woff2" as="font" crossorigin="" type="font/woff2">
+    <link rel="preload" href="./fonts/caa3a2e1cccd8315-s.p.853070df.woff2" as="font" crossorigin="" type="font/woff2">
     <style type="text/css">
         [data-sonner-toaster][dir=ltr],
         html[dir=ltr] {
@@ -103,6 +102,43 @@
             outline: 0;
             z-index: 999999999;
             transition: transform .4s ease
+        }
+
+        .text-shine {
+            color: #0000;
+            text-shadow: 0 2px 4px #0000001a;
+            background: linear-gradient(90deg, #d7bb83, #f3e5ab, #fff, #f3e5ab, #d7bb83) 0 0/200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: 4s linear infinite shine
+        }
+
+        .text-gold {
+            color: #d7bb83;
+        }
+
+        .fill-gold\/60 {
+            fill: #d7bb8399
+        }
+
+        .drop-shadow-glow {
+            filter: drop-shadow(0 0 8px #d7bb8380);
+        }
+
+        @supports (color: color-mix(in lab,red,red)) {
+            .fill-gold\/60 {
+                fill:color-mix(in oklab,#d7bb83 60%,transparent)
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: -200%
+            }
+
+            to {
+                background-position: 200%
+            }
         }
 
         @media (hover:none) and (pointer:coarse) {
@@ -902,6 +938,21 @@
             }
         }
 
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1.16714);
+            }
+            25% {
+                transform: scale(1.25);
+            }
+            50% {
+                transform: scale(1.16714);
+            }
+            75% {
+                transform: scale(1.22);
+            }
+        }
+
         .animate-fade-in.jsx-15dd357d23fa7cae {
             animation: 1s ease-out forwards fade-in
         }
@@ -995,14 +1046,12 @@
         <div class="min-h-screen bg-gradient-to-br from-pink-50 to-yellow-50 relative">
             <div class="relative">
                 <audio id="welcome-music" loop="" preload="auto" playsinline="" autoplay="" muted="">
-                    <source
-                        src="./images/Kou_Pi_Preng_Prutt-Him_Sivorn_Ft_Ek_Side.mp3"
-                        type="audio/mp3">
+                    <source src="./images/Kou_Pi_Preng_Prutt-Him_Sivorn_Ft_Ek_Side.mp3" type="audio/mp3">
                 </audio>
                 <script>
                     // Chrome Autoplay Policy compliant: muted autoplay + unmute on user interaction
                     const audio = document.getElementById('welcome-music');
-                    
+
                     // Muted autoplay happens via HTML attribute, but ensure it plays
                     const playMuted = () => {
                         audio.muted = true;
@@ -1013,13 +1062,13 @@
                             });
                         }
                     };
-                    
+
                     if (document.readyState === 'loading') {
                         document.addEventListener('DOMContentLoaded', playMuted);
                     } else {
                         playMuted();
                     }
-                    
+
                     // Unmute on first user interaction (click, touch, or scroll)
                     const unmute = () => {
                         audio.muted = false;
@@ -1040,17 +1089,19 @@
                                 bg-white/20 hover:bg-white/30
                                 border border-white/40 hover:border-white/60
                             ">
-                                <svg id="music-icon-unmuted" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-volume-2 w-6 h-6 text-pink-500 transition-opacity duration-300"
+                                <svg id="music-icon-unmuted" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-volume-2 w-6 h-6 text-pink-500 transition-opacity duration-300"
                                     aria-hidden="true">
                                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                                     <path d="M15.54 8.46a7 7 0 0 1 0 9.9"></path>
                                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                                 </svg>
-                                <svg id="music-icon-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-volume-x w-6 h-6 text-gray-400 transition-opacity duration-300 absolute opacity-0"
+                                <svg id="music-icon-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-volume-x w-6 h-6 text-gray-400 transition-opacity duration-300 absolute opacity-0"
                                     aria-hidden="true">
                                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                                     <line x1="23" y1="9" x2="17" y2="15"></line>
@@ -1063,7 +1114,7 @@
                             const audioElement = document.getElementById('welcome-music');
                             const unmuteIcon = document.getElementById('music-icon-unmuted');
                             const muteIcon = document.getElementById('music-icon-muted');
-                            
+
                             // Update button state based on audio muted status
                             const updateButtonState = () => {
                                 if (audioElement.muted) {
@@ -1078,15 +1129,15 @@
                                     musicToggle.classList.remove('bg-white/20', 'border-white/40');
                                 }
                             };
-                            
-                            musicToggle.addEventListener('click', function() {
+
+                            musicToggle.addEventListener('click', function () {
                                 audioElement.muted = !audioElement.muted;
                                 if (!audioElement.paused === false) {
-                                    audioElement.play().catch(() => {});
+                                    audioElement.play().catch(() => { });
                                 }
                                 updateButtonState();
                             });
-                            
+
                             // Initialize button state on load
                             updateButtonState();
                         </script>
@@ -1104,24 +1155,41 @@
 									flex flex-col justify-start items-center
 									text-center px-6 w-full py-8
 									animate-fade-in-up
-								" style="background-image: url(./images/pic2.jpg); background-size: cover; background-position: center center;">
+								" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/pic2.jpg); background-size: cover; background-position: center center;">
                                     <div class="jsx-15dd357d23fa7cae h-150">
                                         <div
                                             class="jsx-15dd357d23fa7cae relative z-10 space-y-2 flex flex-col justify-between h-full">
                                             <div class="jsx-15dd357d23fa7cae animate-slide-down">
-                                                <h1 class="jsx-15dd357d23fa7cae text-2xl md:text-3xl pt-5"
+                                                <!-- <h1 class="jsx-15dd357d23fa7cae text-2xl md:text-3xl pt-5"
                                                     style="color: rgb(245, 184, 15); font-family: Moul, sans-serif; text-shadow: rgb(0, 0, 0) 1px 2px 4px; line-height: 50px;">
-                                                    សិរីមង្គលអាពាហ៍ពិពាហ៍</h1>
+                                                    សិរីមង្គលអាពាហ៍ពិពាហ៍</h1> -->
+                                                <div
+                                                    style="opacity: 1; transform: none; font-family: Moulpali, cursive;">
+                                                    <h1
+                                                        class="text-2xl md:text-3xl pt-5 whitespace-nowrap text-shine py-2 leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                                        សិរីមង្គលអាពាហ៍ពិពាហ៍</h1>
+                                                </div>
                                                 <div
                                                     class="jsx-15dd357d23fa7cae flex items-center justify-center gap-2 pt-9 animate-fade-in-up animation-delay-300">
                                                     <div class="jsx-15dd357d23fa7cae text-xl drop- hover:scale-110 transition-transform duration-300"
                                                         style="color: rgb(245, 184, 15); font-family: Moul, sans-serif; text-shadow: rgb(0, 0, 0) 1px 2px 4px;">
                                                         តាន់​ សំណាង</div>
-                                                    <div class="jsx-15dd357d23fa7cae text-lg "
+                                                    <!-- <div class="jsx-15dd357d23fa7cae text-lg "
                                                         style="color: rgb(245, 245, 245);"><span
                                                             class="jsx-15dd357d23fa7cae text-md"
-                                                            style="font-family: &quot;Noto Sans Khmer&quot;, sans-serif;">និង</span>
-                                                    </div>
+                                                            style="font-family: Moul, sans-serif;">❤️</span>
+                                                    </div> -->
+                                                    <div class="py-2" style="animation: heartbeat 2s ease-in-out infinite;"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            class="lucide lucide-heart w-8 h-8 sm:w-11 sm:h-12 text-gold fill-gold/60 drop-shadow-glow"
+                                                            aria-hidden="true">
+                                                            <path
+                                                                d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5">
+                                                            </path>
+                                                        </svg></div>
                                                     <div class="jsx-15dd357d23fa7cae text-xl drop- hover:scale-110 transition-transform duration-300"
                                                         style="color: rgb(245, 184, 15); text-shadow: rgb(0, 0, 0) 1px 2px 4px; font-family: Moul, sans-serif;">
                                                         ហ៊ុន ស្រីណែត</div>
@@ -1134,12 +1202,15 @@
                                                 <div role="img" aria-label="Guest name"
                                                     class="jsx-15dd357d23fa7cae relative text-[16px] text-center inline-flex items-center justify-center px-3 hover:scale-105 transition-transform duration-300 animate-fade-in"
                                                     style="font-family: moul; background-image: url(&quot;https://focuz-staging-space.sgp1.digitaloceanspaces.com/plan-essential/template/free/template-1/name-frame-kbach.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; aspect-ratio: 4 / 1; width: 100%; max-width: 340px; min-height: 90px;">
-                                                    <span id="guest-name" class="jsx-15dd357d23fa7cae text-[#999999] relative z-10">លោក ហ៊ុន ប៊ុនថុល និងភរិយា</span></div>
+                                                    <span id="guest-name"
+                                                        class="jsx-15dd357d23fa7cae text-[#999999] relative z-10">លោក
+                                                        ហ៊ុន ប៊ុនថុល និងភរិយា</span>
+                                                </div>
                                                 <script>
                                                     // Update guest name from URL parameter
                                                     const urlParams = new URLSearchParams(window.location.search);
                                                     const guestName = urlParams.get('i') ? decodeURIComponent(urlParams.get('i').split('?')[urlParams.get('i').split('?').length - 1] || '') : '';
-                                                    
+
                                                     // Check if there's a guest name in the URL
                                                     if (guestName && guestName.trim()) {
                                                         document.getElementById('guest-name').textContent = guestName.trim();
@@ -1352,8 +1423,7 @@
                                             alt="Event Location Map" loading="lazy" width="300" height="250"
                                             decoding="async" data-nimg="1"
                                             class="hover:scale-105 transition-transform duration-300 rounded-lg"
-                                            src="./images/location_qr.png"
-                                            style="color: transparent;"></div>
+                                            src="./images/location_qr.png" style="color: transparent;"></div>
                                 </div>
                                 <div
                                     class="jsx-15dd357d23fa7cae text-[10px] text-center w-[200px] h-auto animate-fade-in animation-delay-500">
@@ -1361,7 +1431,8 @@
                                         class="text-[12px] text-center w-[200px] h-auto inline-block px-3 py-2 hover:scale-110 hover: transform transition-all duration-300"
                                         href="https://maps.app.goo.gl/ATbj2WKf2ueBiTEi8?g_st=ic"
                                         style="color: white; font-family: moul; background-image: url(&quot;https://focuz-staging-space.sgp1.digitaloceanspaces.com/plan-essential/template/free/template-1/button-kbach.png&quot;); background-size: cover; background-position: center center; display: inline-block; border-radius: 8px;">មើលក្នុង
-                                        Google Map</a></div>
+                                        Google Map</a>
+                                </div>
                             </div>
                             <div id="gallery"
                                 class="jsx-15dd357d23fa7cae mx-auto flex flex-col items-center animate-fade-in-up animation-delay-1400">
@@ -1370,36 +1441,28 @@
                                 <div class="jsx-15dd357d23fa7cae my-4">
                                     <div class="grid grid-cols-2 gap-4 px-6 w-full">
                                         <div>
-                                            <div style="transform: translateY(30px);"><img alt="Photo 1"
-                                                    loading="lazy" width="400" height="150" decoding="async"
-                                                    data-nimg="1"
+                                            <div style="transform: translateY(30px);"><img alt="Photo 1" loading="lazy"
+                                                    width="400" height="150" decoding="async" data-nimg="1"
                                                     class="gallery-image aspect-[9/16] object-cover cursor-pointer transition-all duration-300 rounded-lg hover:scale-105"
-                                                    src="./images/pic1.jpg"
-                                                    style="color: transparent;"></div>
+                                                    src="./images/pic1.jpg" style="color: transparent;"></div>
                                         </div>
                                         <div>
-                                            <div style="transform: translateY(30px);"><img alt="Photo 2"
-                                                    loading="lazy" width="400" height="150" decoding="async"
-                                                    data-nimg="1"
+                                            <div style="transform: translateY(30px);"><img alt="Photo 2" loading="lazy"
+                                                    width="400" height="150" decoding="async" data-nimg="1"
                                                     class="gallery-image aspect-[9/16] object-cover cursor-pointer transition-all duration-300 rounded-lg hover:scale-105"
-                                                    src="./images/pic2.jpg"
-                                                    style="color: transparent;"></div>
+                                                    src="./images/pic2.jpg" style="color: transparent;"></div>
                                         </div>
                                         <div>
-                                            <div style="transform: translateY(30px);"><img alt="Photo 3"
-                                                    loading="lazy" width="400" height="150" decoding="async"
-                                                    data-nimg="1"
+                                            <div style="transform: translateY(30px);"><img alt="Photo 3" loading="lazy"
+                                                    width="400" height="150" decoding="async" data-nimg="1"
                                                     class="gallery-image aspect-[9/16] object-cover cursor-pointer transition-all duration-300 rounded-lg hover:scale-105"
-                                                    src="./images/pic3.jpg"
-                                                    style="color: transparent;"></div>
+                                                    src="./images/pic3.jpg" style="color: transparent;"></div>
                                         </div>
                                         <div>
-                                            <div style="transform: translateY(30px);"><img alt="Photo 4"
-                                                    loading="lazy" width="400" height="150" decoding="async"
-                                                    data-nimg="1"
+                                            <div style="transform: translateY(30px);"><img alt="Photo 4" loading="lazy"
+                                                    width="400" height="150" decoding="async" data-nimg="1"
                                                     class="gallery-image aspect-[9/16] object-cover cursor-pointer transition-all duration-300 rounded-lg hover:scale-105"
-                                                    src="./images/pic4.jpg"
-                                                    style="color: transparent;"></div>
+                                                    src="./images/pic4.jpg" style="color: transparent;"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1410,31 +1473,48 @@
                                         style="color: transparent;"></div>
                             </div>
                             <!-- Image Modal Popup -->
-                            <div id="imageModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4" style="backdrop-filter: blur(8px);">
-                                <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center">
-                                    <img id="modalImage" src="" alt="Full size image" class="w-full h-auto max-h-[80vh] object-contain rounded-lg">
-                                    
+                            <div id="imageModal"
+                                class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4"
+                                style="backdrop-filter: blur(8px);">
+                                <div
+                                    class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center">
+                                    <img id="modalImage" src="" alt="Full size image"
+                                        class="w-full h-auto max-h-[80vh] object-contain rounded-lg">
+
                                     <!-- Navigation Arrows -->
-                                    <button id="prevImage" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-300 hover:scale-110" aria-label="Previous image">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <button id="prevImage"
+                                        class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
+                                        aria-label="Previous image">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
                                             <polyline points="15 18 9 12 15 6"></polyline>
                                         </svg>
                                     </button>
-                                    
-                                    <button id="nextImage" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-300 hover:scale-110" aria-label="Next image">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                                    <button id="nextImage"
+                                        class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
+                                        aria-label="Next image">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
                                             <polyline points="9 18 15 12 9 6"></polyline>
                                         </svg>
                                     </button>
-                                    
+
                                     <!-- Image Counter -->
-                                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                                    <div
+                                        class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold">
                                         <span id="imageCounter">1</span> / 4
                                     </div>
-                                    
+
                                     <!-- Close Button -->
-                                    <button id="closeModal" class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 transition-all duration-300 hover:scale-110" aria-label="Close modal">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <button id="closeModal"
+                                        class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 transition-all duration-300 hover:scale-110"
+                                        aria-label="Close modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
                                             <line x1="18" x2="6" y1="6" y2="18"></line>
                                             <line x1="6" x2="18" y1="6" y2="18"></line>
                                         </svg>
@@ -1450,7 +1530,7 @@
                                 const nextImageBtn = document.getElementById('nextImage');
                                 const imageCounter = document.getElementById('imageCounter');
                                 const galleryImages = document.querySelectorAll('.gallery-image');
-                                
+
                                 const imageArray = Array.from(galleryImages).map(img => img.src);
                                 let currentImageIndex = 0;
 
@@ -1480,7 +1560,7 @@
                                 }
 
                                 galleryImages.forEach((img, index) => {
-                                    img.addEventListener('click', function() {
+                                    img.addEventListener('click', function () {
                                         openModal(index);
                                     });
                                 });
@@ -1489,16 +1569,16 @@
                                 nextImageBtn.addEventListener('click', showNextImage);
                                 prevImageBtn.addEventListener('click', showPrevImage);
 
-                                modal.addEventListener('click', function(e) {
+                                modal.addEventListener('click', function (e) {
                                     if (e.target === modal) {
                                         closeModalFunc();
                                     }
                                 });
 
                                 // Keyboard navigation
-                                document.addEventListener('keydown', function(e) {
+                                document.addEventListener('keydown', function (e) {
                                     if (modal.classList.contains('hidden')) return;
-                                    
+
                                     if (e.key === 'Escape') {
                                         closeModalFunc();
                                     } else if (e.key === 'ArrowRight') {
@@ -1520,7 +1600,7 @@
                                     នាពេលខាងមុខនេះ។ យើងខ្ញុំសូមការខន្តីអភ័យទោស ដែលពុំបានជូនលិខិតអញ្ជើញ ដោយផ្ទាល់ ។
                                     ដោយការវកិច្ចដ៏ខ្ពង់ខ្ពស់ពីយើងខ្ញុំ។</p>
                             </div>
-                            
+
                             <footer class="relative py-14">
                                 <div class="absolute inset-0 opacity-20">
                                     <div
@@ -1565,9 +1645,11 @@
                                                 <div
                                                     class="flex items-center gap-6 px-8 py-4 rounded-lg border border-[#A5AE79]/20 transition-all duration-300 bg-background/10 backdrop-blur-sm">
                                                     <div class="relative h-10 items-center justify-center">
-                                                        <p class="text-sm font-medium text-[#A5AE79]" style="font-family: Moul, sans-serif;">Steven Tan</p>
+                                                        <p class="text-sm font-medium text-[#A5AE79]"
+                                                            style="font-family: Moul, sans-serif;">Steven Tan</p>
                                                         <!-- <p class="text-sm font-medium text-[#A5AE79]" style="font-family: Moul, sans-serif;">077 77 32 38</p> -->
-                                                        <p class="text-sm font-medium text-[#A5AE79]" style="font-family: Moul, sans-serif;">087 77 32 38</p>
+                                                        <p class="text-sm font-medium text-[#A5AE79]"
+                                                            style="font-family: Moul, sans-serif;">087 77 32 38</p>
                                                     </div>
                                                 </div>
                                             </a>
@@ -1603,8 +1685,8 @@
                                                         </path>
                                                     </svg>
                                                 </a>
-                                                <a href="https://www.instagram.com/_steven.tan_"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://www.instagram.com/_steven.tan_" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     class="group relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/20 hover:bg-primary/30 transition-all duration-300 flex items-center justify-center hover:scale-110"
                                                     aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg"
                                                         width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -1665,7 +1747,6 @@
                 style="position: absolute; border: 0px; height: 1px; margin: -1px; padding: 0px; width: 1px; clip: rect(0px, 0px, 0px, 0px); overflow: hidden; white-space: nowrap; overflow-wrap: normal;">
             </div>
         </template></next-route-announcer>
-    <!-- <script>self.__next_f.push([1, "13:[[\"$\",\"title\",\"0\",{\"children\":\"អាពាហ៍ពិពាហ៍ សំណាង និង ស្រីណែត\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"សូមគោរពអញ្ជើញ លោក ហ៊ុន ប៊ុនថុល និងភរិយា\"}],[\"$\",\"link\",\"2\",{\"rel\":\"manifest\",\"href\":\"/manifest.webmanifest\",\"crossOrigin\":\"$undefined\"}],[\"$\",\"meta\",\"3\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"4\",{\"name\":\"fb:app_id\",\"content\":\"876539231575648\"}],[\"$\",\"meta\",\"5\",{\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"}],[\"$\",\"meta\",\"6\",{\"name\":\"apple-mobile-web-app-status-bar-style\",\"content\":\"default\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:title\",\"content\":\"អាពាហ៍ពិពាហ៍ សំណាង និង ស្រីណែត\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:description\",\"content\":\"សូមគោរពអញ្ជើញ លោក ហ៊ុន ប៊ុនថុល និងភរិយា\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:url\",\"content\":\"https://app.planessential.com/invitation/cml6hcrc40009jv04m1j24ymp?i=cml6ilia00001jp04lu9c5sr0\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:site_name\",\"content\":\"Plan Essential\"}],[\"$\",\"meta\",\"11\",{\"property\":\"og:locale\",\"content\":\"en_US\"}],[\"$\",\"meta\",\"12\",{\"property\":\"og:image\",\"content\":\"https://focuz-staging-space.sgp1.cdn.digitaloceanspaces.com/plan-essential/event/cover/1770115444449-ktc01i-DSC00893.jpg\"}],[\"$\",\"meta\",\"13\",{\"property\":\"og:image:width\",\"content\":\"1200\"}],[\"$\",\"meta\",\"14\",{\"property\":\"og:image:height\",\"content\":\"630\"}],[\"$\",\"meta\",\"15\",{\"property\":\"og:image:alt\",\"content\":\"អាពាហ៍ពិពាហ៍ សំណាង និង ស្រីណែត\"}],[\"$\",\"meta\",\"16\",{\"property\":\"og:image:type\",\"content\":\"image/jpeg\"}],[\"$\",\"meta\",\"17\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"18\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"19\",{\"name\":\"twitter:title\",\"content\":\"អាពាហ៍ពិពាហ៍ សំណាង និង ស្រីណែត\"}],[\"$\",\"meta\",\"20\",{\"name\":\"twitter:description\",\"content\":\"សូមគោរពអញ្ជើញ លោក ហ៊ុន ប៊ុនថុល និងភរិយា\"}],[\"$\",\"meta\",\"21\",{\"name\":\"twitter:image\",\"content\":\"https://focuz-staging-space.sgp1.cdn.digitaloceanspaces.com/plan-essential/event/cover/1770115444449-ktc01i-DSC00893.jpg\"}],[\"$\",\"meta\",\"22\",{\"name\":\"twitter:image:alt\",\"content\":\"អាពាហ៍ពិពាហ៍ សំណាង និង ស្រីណែត\"}],[\"$\",\"link\",\"23\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"196x196\",\"type\":\"image/ico\"}],[\"$\",\"link\",\"24\",{\"rel\":\"apple-touch-icon\",\"href\":\"/icons/apple-icon-180.png\"}],[\"$\",\"$L16\",\"25\",{}]]\n"])</script> -->
     <title>អាពាហ៍ពិពាហ៍ សំណាង និង ស្រីណែត</title>
     <meta name="description" content="សូមគោរពអញ្ជើញ លោក ហ៊ុន ប៊ុនថុល និងភរិយា">
     <link rel="manifest" href="/manifest.webmanifest">
