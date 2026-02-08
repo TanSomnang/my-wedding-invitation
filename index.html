@@ -1,4 +1,4 @@
-<html lang="km" style="font-family: &quot;Noto Sans Khmer&quot;, Inter, sans-serif;">
+<html lang="km" style="font-family: Noto Sans Khmer, Inter, sans-serif;">
 
 <head>
     <meta charset="utf-8">
@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="./css/2473c16c0c2f6b5f.css" data-precedence="next">
     <link rel="stylesheet" href="./css/2b5b79d1d607e281.css" data-precedence="next">
     <link rel="stylesheet" href="./css/main.css" data-precedence="next">
-    <!-- <link rel="preload" as="script" fetchpriority="low" href="./af4a0202735b81c.js"> -->
     <script src="./js/7e9f06a06f5e5740.js" async=""></script>
     <script src="./js/e389e09072bd51fe.js" async=""></script>
     <script src="./js//1ea72d1be604ca55.js" async=""></script>
@@ -49,8 +48,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Delius&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer&amp;display=swap" rel="stylesheet">
     <script src="/a6dad97d9634a72d.js" nomodule=""></script>
-    <link rel="preload" href="./fonts/797e433ab948586e-s.p.dbea232f.woff2" as="font" crossorigin="" type="font/woff2">
-    <link rel="preload" href="./fonts/caa3a2e1cccd8315-s.p.853070df.woff2" as="font" crossorigin="" type="font/woff2">
     <style type="text/css">
         [data-sonner-toaster][dir=ltr],
         html[dir=ltr] {
@@ -125,9 +122,9 @@
             filter: drop-shadow(0 0 8px #d7bb8380);
         }
 
-        @supports (color: color-mix(in lab,red,red)) {
+        @supports (color: color-mix(in lab, red, red)) {
             .fill-gold\/60 {
-                fill:color-mix(in oklab,#d7bb83 60%,transparent)
+                fill: color-mix(in oklab, #d7bb83 60%, transparent)
             }
         }
 
@@ -809,28 +806,6 @@
             transform: scale(.8) translate(-50%, -50%)
         }
     </style>
-    <script src="/_vercel/insights/script.js" defer="" data-sdkn="@vercel/analytics/next" data-sdkv="1.6.1"
-        data-disable-auto-track="1"></script>
-    <script src="/_vercel/speed-insights/script.js" defer="" data-sdkn="@vercel/speed-insights/next" data-sdkv="1.3.1"
-        data-route="/invitation/[slug]"></script>
-    <link rel="icon" href="./images/favicon.ico" sizes="196x196" type="image/ico">
-    <link rel="apple-touch-icon" href="/icons/apple-icon-180.png">
-    <script src="/adf5bcf9f7f7c275.js"></script>
-    <script src="/143c4587f3b5699d.js"></script>
-    <script src="/a3dd2bb6b77ca038.js"></script>
-    <script src="/d9f35880d6f66d14.js"></script>
-    <script src="/fdaa535085cec28f.js"></script>
-    <script src="/8d5e452b8a88be8d.js"></script>
-    <script src="/563d267ede646a18.js"></script>
-    <script src="/bbf262da537ba269.js"></script>
-    <script src="/c308fdac81187446.js"></script>
-    <script src="/cb4f8946279e5339.js"></script>
-    <script src="/a436ffcae2ea1273.js"></script>
-    <script src="/39c3c1b1defe8150.js"></script>
-    <script src="/9c57ec5867dd996f.js"></script>
-    <script src="/2f2c6eea4c4c59f3.js"></script>
-    <script src="/ff0058a2dc4c9e9c.js"></script>
-    <script src="/6ed152155aefd64d.js"></script>
     <style type="text/css" data-styled-jsx="">
         @keyframes fade-in {
             0% {
@@ -939,15 +914,20 @@
         }
 
         @keyframes heartbeat {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1.16714);
             }
+
             25% {
                 transform: scale(1.25);
             }
+
             50% {
                 transform: scale(1.16714);
             }
+
             75% {
                 transform: scale(1.22);
             }
@@ -1034,6 +1014,17 @@
         .animate-zoom-in.jsx-15dd357d23fa7cae {
             opacity: 0
         }
+
+        /* Delay animations until video splash screen ends */
+        body:not(.video-splash-ended) .animate-fade-in,
+        body:not(.video-splash-ended) .animate-slide-down,
+        body:not(.video-splash-ended) .animate-slide-up,
+        body:not(.video-splash-ended) .animate-slide-in-left,
+        body:not(.video-splash-ended) .animate-slide-in-right,
+        body:not(.video-splash-ended) .animate-fade-in-up,
+        body:not(.video-splash-ended) .animate-zoom-in {
+            animation: none !important;
+        }
     </style>
     <title>អាពាហ៍ពិពាហ៍ សំណាង និង ស្រីណែត</title>
 </head>
@@ -1046,42 +1037,31 @@
         </video>
     </div>
 
-    <script>
-        // Handle video completion and transition to main page
-        const videoSplash = document.getElementById('video-splash');
-        const introVideo = document.getElementById('intro-video');
-        
-        // Set video playback speed to 1.5x
-        introVideo.playbackRate = 1.5;
-        
-        // Listen for video end event
-        introVideo.addEventListener('ended', function() {
-            // Fade out the video splash screen
-            videoSplash.classList.add('fade-out');
-            
-            // After fade animation completes, hide the splash screen
-            setTimeout(function() {
-                videoSplash.style.display = 'none';
-                
-                // Scroll to main content if needed
-                const mainSection = document.getElementById('main');
-                if (mainSection) {
-                    mainSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 1000); // Match the fade-out animation duration
-        });
-        
-        // Optional: Add a skip button for users
-        document.addEventListener('click', function skipVideo(event) {
-            if (videoSplash.style.display !== 'none' && event.target !== introVideo) {
-                videoSplash.classList.add('fade-out');
-                setTimeout(function() {
-                    videoSplash.style.display = 'none';
-                }, 1000);
-                document.removeEventListener('click', skipVideo);
-            }
-        });
-    </script>
+    <!-- Music Toggle (visible on all pages including splash) -->
+    <div class="fixed bottom-4 right-4" style="z-index: 10000;">
+        <button type="button" id="music-toggle" aria-label="Toggle music" class="
+            relative p-3 sm:p-4 rounded-full
+            flex items-center justify-center
+            transition-all duration-300 transform
+            hover:scale-110 active:scale-95
+            shadow-lg
+            bg-white
+        ">
+            <svg id="music-icon-unmuted" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-volume-2 w-5 h-5 sm:w-5 sm:h-5 text-gold-light transition-opacity duration-300"
+                aria-hidden="true">
+                <rect x="14" y="3" width="5" height="18" rx="1"></rect>
+                <rect x="5" y="3" width="5" height="18" rx="1"></rect>
+            </svg>
+            <svg id="music-icon-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-volume-x w-5 h-5 sm:w-5 sm:h-5 text-gold-light transition-opacity duration-300 absolute"
+                aria-hidden="true">
+                <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
+            </svg>
+        </button>
+    </div>
 
     <div hidden=""><!--$--><!--/$--></div><!--$--><!--/$--><!--$--><!--/$-->
     <section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text"
@@ -1092,104 +1072,13 @@
                 <audio id="welcome-music" loop="" preload="auto" playsinline="" autoplay="" muted="">
                     <source src="./images/Kou_Pi_Preng_Prutt-Him_Sivorn_Ft_Ek_Side.mp3" type="audio/mp3">
                 </audio>
-                <script>
-                    // Chrome Autoplay Policy compliant: muted autoplay + unmute on user interaction
-                    const audio = document.getElementById('welcome-music');
 
-                    // Muted autoplay happens via HTML attribute, but ensure it plays
-                    const playMuted = () => {
-                        audio.muted = true;
-                        const playPromise = audio.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(error => {
-                                console.log('Autoplay failed:', error);
-                            });
-                        }
-                    };
-
-                    if (document.readyState === 'loading') {
-                        document.addEventListener('DOMContentLoaded', playMuted);
-                    } else {
-                        playMuted();
-                    }
-
-                    // Unmute on first user interaction (click, touch, or scroll)
-                    const unmute = () => {
-                        audio.muted = false;
-                    };
-                    document.addEventListener('click', unmute, { once: true });
-                    document.addEventListener('touchstart', unmute, { once: true });
-                </script>
                 <div class="relative min-h-screen max-w-md mx-auto">
                     <div class="front-evelop h-screen relative overflow-hidden">
-                        <!-- <div class="fixed top-4 right-4 z-40">
-                            <button type="button" id="music-toggle" aria-label="Toggle music" class="
-                                relative w-12 h-12 rounded-full
-                                flex items-center justify-center
-                                backdrop-blur-md
-                                transition-all duration-300 transform
-                                hover:scale-110 active:scale-95
-                                shadow-lg
-                                bg-white/20 hover:bg-white/30
-                                border border-white/40 hover:border-white/60
-                            ">
-                                <svg id="music-icon-unmuted" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-volume-2 w-6 h-6 text-pink-500 transition-opacity duration-300"
-                                    aria-hidden="true">
-                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                    <path d="M15.54 8.46a7 7 0 0 1 0 9.9"></path>
-                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                                </svg>
-                                <svg id="music-icon-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-volume-x w-6 h-6 text-gray-400 transition-opacity duration-300 absolute opacity-0"
-                                    aria-hidden="true">
-                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                    <line x1="23" y1="9" x2="17" y2="15"></line>
-                                    <line x1="17" y1="9" x2="23" y2="15"></line>
-                                </svg>
-                            </button>
-                        </div> -->
-                        <script>
-                            const musicToggle = document.getElementById('music-toggle');
-                            const audioElement = document.getElementById('welcome-music');
-                            const unmuteIcon = document.getElementById('music-icon-unmuted');
-                            const muteIcon = document.getElementById('music-icon-muted');
-
-                            // Update button state based on audio muted status
-                            const updateButtonState = () => {
-                                if (audioElement.muted) {
-                                    unmuteIcon.style.opacity = '0';
-                                    muteIcon.style.opacity = '1';
-                                    musicToggle.classList.remove('bg-white/30', 'border-white/60');
-                                    musicToggle.classList.add('bg-white/20', 'border-white/40');
-                                } else {
-                                    unmuteIcon.style.opacity = '1';
-                                    muteIcon.style.opacity = '0';
-                                    musicToggle.classList.add('bg-white/30', 'border-white/60');
-                                    musicToggle.classList.remove('bg-white/20', 'border-white/40');
-                                }
-                            };
-
-                            musicToggle.addEventListener('click', function () {
-                                audioElement.muted = !audioElement.muted;
-                                if (!audioElement.paused === false) {
-                                    audioElement.play().catch(() => { });
-                                }
-                                updateButtonState();
-                            });
-
-                            // Initialize button state on load
-                            updateButtonState();
-                        </script>
                         <div class="absolute top-0 left-0 w-full h-full"><img alt="Background Video" loading="lazy"
                                 width="1400" height="800" decoding="async" data-nimg="1"
-                                class="w-full h-full object-cover"
-                                src="https://focuz-staging-space.sgp1.cdn.digitaloceanspaces.com/plan-essential/template/free/template-1/background-free.jpg"
-                                style="color: transparent;"></div>
+                                class="w-full h-full object-cover" src="./images/bg1.jpg"
+                                style="opacity: 10%"></div>
                         <div id="scroll-container"
                             class="jsx-15dd357d23fa7cae relative z-10 h-full overflow-y-auto overflow-x-hidden scrollbar-hide flex flex-col items-center gap-6"
                             style="scrollbar-width: none;">
@@ -1198,15 +1087,11 @@
 									relative h-screen bg-cover bg-center
 									flex flex-col justify-start items-center
 									text-center px-6 w-full py-8
-									animate-fade-in-up
-								" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/pic2.jpg); background-size: cover; background-position: center center;">
+								" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(./images/pic2.jpg); background-size: cover; background-position: center center;">
                                     <div class="jsx-15dd357d23fa7cae h-150">
                                         <div
                                             class="jsx-15dd357d23fa7cae relative z-10 space-y-2 flex flex-col justify-between h-full">
                                             <div class="jsx-15dd357d23fa7cae animate-slide-down">
-                                                <!-- <h1 class="jsx-15dd357d23fa7cae text-2xl md:text-3xl pt-5"
-                                                    style="color: rgb(245, 184, 15); font-family: Moul, sans-serif; text-shadow: rgb(0, 0, 0) 1px 2px 4px; line-height: 50px;">
-                                                    សិរីមង្គលអាពាហ៍ពិពាហ៍</h1> -->
                                                 <div
                                                     style="opacity: 1; transform: none; font-family: Moulpali, cursive;">
                                                     <h1
@@ -1218,12 +1103,8 @@
                                                     <div class="jsx-15dd357d23fa7cae text-xl drop- hover:scale-110 transition-transform duration-300"
                                                         style="color: rgb(245, 184, 15); font-family: Moul, sans-serif; text-shadow: rgb(0, 0, 0) 1px 2px 4px;">
                                                         តាន់​ សំណាង</div>
-                                                    <!-- <div class="jsx-15dd357d23fa7cae text-lg "
-                                                        style="color: rgb(245, 245, 245);"><span
-                                                            class="jsx-15dd357d23fa7cae text-md"
-                                                            style="font-family: Moul, sans-serif;">❤️</span>
-                                                    </div> -->
-                                                    <div class="py-2" style="animation: heartbeat 2s ease-in-out infinite;"><svg
+                                                    <div class="py-2"
+                                                        style="animation: heartbeat 2s ease-in-out infinite;"><svg
                                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                             stroke-width="2" stroke-linecap="round"
@@ -1240,37 +1121,22 @@
                                                 </div>
                                             </div>
                                             <div class="jsx-15dd357d23fa7cae animate-slide-up animation-delay-500">
-                                                <p class="jsx-15dd357d23fa7cae text-md  pt-1"
+                                                <p class="jsx-15dd357d23fa7cae text-md  pt-1 animate-fade-in animation-delay-500"
                                                     style="color: rgb(245, 184, 15); text-shadow: rgb(0, 0, 0) 1px 2px 4px; font-family: Moul, sans-serif;">
                                                     សូមគោរពអញ្ជើញ</p>
                                                 <div role="img" aria-label="Guest name"
-                                                    class="jsx-15dd357d23fa7cae relative text-[16px] text-center inline-flex items-center justify-center px-3 hover:scale-105 transition-transform duration-300 animate-fade-in"
-                                                    style="font-family: moul; background-image: url(&quot;https://focuz-staging-space.sgp1.digitaloceanspaces.com/plan-essential/template/free/template-1/name-frame-kbach.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; aspect-ratio: 4 / 1; width: 100%; max-width: 340px; min-height: 90px;">
+                                                    class="jsx-15dd357d23fa7cae relative text-[16px] text-center inline-flex items-center justify-center px-3 hover:scale-105 transition-transform duration-300 animate-fade-in animation-delay-600"
+                                                    style="font-family: moul; background-image: url(https://focuz-staging-space.sgp1.digitaloceanspaces.com/plan-essential/template/free/template-1/name-frame-kbach.png); background-size: contain; background-repeat: no-repeat; background-position: center center; aspect-ratio: 4 / 1; width: 100%; max-width: 340px; min-height: 90px;">
                                                     <span id="guest-name"
                                                         class="jsx-15dd357d23fa7cae text-[#999999] relative z-10">លោក
                                                         ហ៊ុន ប៊ុនថុល និងភរិយា</span>
                                                 </div>
-                                                <script>
-                                                    // Update guest name from URL parameter
-                                                    const urlParams = new URLSearchParams(window.location.search);
-                                                    const guestName = urlParams.get('i') ? decodeURIComponent(urlParams.get('i').split('?')[urlParams.get('i').split('?').length - 1] || '') : '';
 
-                                                    // Check if there's a guest name in the URL
-                                                    if (guestName && guestName.trim()) {
-                                                        document.getElementById('guest-name').textContent = guestName.trim();
-                                                    } else {
-                                                        // Try to get from query string directly (e.g., ?Mr. A)
-                                                        const queryString = window.location.search.substring(1);
-                                                        if (queryString && queryString !== 'i=' && !queryString.includes('=')) {
-                                                            document.getElementById('guest-name').textContent = decodeURIComponent(queryString);
-                                                        }
-                                                    }
-                                                </script>
                                                 <p class="jsx-15dd357d23fa7cae text-base drop- animate-fade-in animation-delay-700"
-                                                    style="color: rgb(245, 184, 15); text-shadow: rgb(0, 0, 0) 1px 2px 4px; font-family: &quot;Noto Sans Khmer&quot;, sans-serif;">
+                                                    style="color: rgb(245, 184, 15); text-shadow: rgb(0, 0, 0) 1px 2px 4px; font-family: Noto Sans Khmer, sans-serif;">
                                                     ថ្ងៃអាទិត្យ ទី២១ ខែមីនា ឆ្នាំ២០២៧ វេលាម៉ោង ៥៖០០ ល្ងាច</p>
-                                                <p class="jsx-15dd357d23fa7cae text-base  animate-fade-in animation-delay-1000"
-                                                    style="color: rgb(245, 184, 15); text-shadow: rgb(0, 0, 0) 1px 2px 4px; font-family: &quot;Noto Sans Khmer&quot;, sans-serif;">
+                                                <p class="jsx-15dd357d23fa7cae text-base  animate-fade-in animation-delay-900"
+                                                    style="color: rgb(245, 184, 15); text-shadow: rgb(0, 0, 0) 1px 2px 4px; font-family: Noto Sans Khmer, sans-serif;">
                                                     ភោជនីយដ្ឋាន សមភាពថ្មី (អគារ A) ខេត្តសៀមរាប</p>
                                             </div>
                                         </div>
@@ -1278,7 +1144,7 @@
                                 </div>
                             </div>
                             <div id="invitation"
-                                class="jsx-15dd357d23fa7cae p-6 text-center animate-fade-in-up animation-delay-300 hover: transition-shadow duration-300 flex flex-col items-center backdrop-blur-md rounded-lg">
+                                class="jsx-15dd357d23fa7cae p-6 text-center animate-fade-in-up animation-delay-300 hover: transition-shadow duration-300 flex flex-col items-center">
                                 <h2 class="jsx-15dd357d23fa7cae text-lg mb-4 animate-slide-in-left"
                                     style="color: rgb(245, 184, 15); font-family: Moul, sans-serif;">
                                     យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ</h2>
@@ -1565,74 +1431,8 @@
                                     </button>
                                 </div>
                             </div>
-                            <script>
-                                // Gallery Modal Functionality
-                                const modal = document.getElementById('imageModal');
-                                const modalImage = document.getElementById('modalImage');
-                                const closeModal = document.getElementById('closeModal');
-                                const prevImageBtn = document.getElementById('prevImage');
-                                const nextImageBtn = document.getElementById('nextImage');
-                                const imageCounter = document.getElementById('imageCounter');
-                                const galleryImages = document.querySelectorAll('.gallery-image');
 
-                                const imageArray = Array.from(galleryImages).map(img => img.src);
-                                let currentImageIndex = 0;
-
-                                function openModal(index) {
-                                    currentImageIndex = index;
-                                    modalImage.src = imageArray[currentImageIndex];
-                                    imageCounter.textContent = currentImageIndex + 1;
-                                    modal.classList.remove('hidden');
-                                    document.body.style.overflow = 'hidden';
-                                }
-
-                                function closeModalFunc() {
-                                    modal.classList.add('hidden');
-                                    document.body.style.overflow = 'auto';
-                                }
-
-                                function showNextImage() {
-                                    currentImageIndex = (currentImageIndex + 1) % imageArray.length;
-                                    modalImage.src = imageArray[currentImageIndex];
-                                    imageCounter.textContent = currentImageIndex + 1;
-                                }
-
-                                function showPrevImage() {
-                                    currentImageIndex = (currentImageIndex - 1 + imageArray.length) % imageArray.length;
-                                    modalImage.src = imageArray[currentImageIndex];
-                                    imageCounter.textContent = currentImageIndex + 1;
-                                }
-
-                                galleryImages.forEach((img, index) => {
-                                    img.addEventListener('click', function () {
-                                        openModal(index);
-                                    });
-                                });
-
-                                closeModal.addEventListener('click', closeModalFunc);
-                                nextImageBtn.addEventListener('click', showNextImage);
-                                prevImageBtn.addEventListener('click', showPrevImage);
-
-                                modal.addEventListener('click', function (e) {
-                                    if (e.target === modal) {
-                                        closeModalFunc();
-                                    }
-                                });
-
-                                // Keyboard navigation
-                                document.addEventListener('keydown', function (e) {
-                                    if (modal.classList.contains('hidden')) return;
-
-                                    if (e.key === 'Escape') {
-                                        closeModalFunc();
-                                    } else if (e.key === 'ArrowRight') {
-                                        showNextImage();
-                                    } else if (e.key === 'ArrowLeft') {
-                                        showPrevImage();
-                                    }
-                                });
-                            </script>
-                            <div class="jsx-15dd357d23fa7cae p-6 text-center  backdrop-blur-md rounded-lg">
+                            <div class="jsx-15dd357d23fa7cae p-6 text-center">
                                 <h2 class="text-lg mb-4 animate-slide-in-left"
                                     style="color: rgb(245, 184, 15); font-family: Moul, sans-serif;">
                                     សូមអរគុណ និងសូមអភ័យទោស</h2>
@@ -1764,7 +1564,6 @@
         </div>
     </div><!--$--><!--/$-->
     <script>requestAnimationFrame(function () { $RT = performance.now() });</script>
-    <script src="/faf4a0202735b81c.js" id="_R_" async=""></script>
     <script>(self.__next_f = self.__next_f || []).push([0])</script>
     <script>self.__next_f.push([1, "1:\"$Sreact.fragment\"\n2:I[302355,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\"],\"Analytics\"]\n3:I[957215,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\"],\"SpeedInsights\"]\n4:I[182560,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\"],\"LocaleFontProvider\"]\n5:I[713354,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\"],\"Toaster\"]\n6:I[339756,[\"/d96012bcfc98706a.js\",\"/963c71eec1d89c3f.js\"],\"default\"]\n7:I[758298,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\",\"/4e579059fefd4b34.js\",\"/10db85504df30485.js\"],\"default\"]\n8:I[837457,[\"/d96012bcfc98706a.js\",\"/963c71eec1d89c3f.js\"],\"default\"]\n9:I[329306,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\",\"/e84799f1f9c74cd3.js\",\"/10db85504df30485.js\"],\"default\"]\na:I[654576,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\"],\"GoogleAnalytics\"]\nb:I[19598,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\"],\"GoogleTagManager\"]\nd:I[897367,[\"/d96012bcfc98706a.js\",\"/963c71eec1d89c3f.js\"],\"OutletBoundary\"]\ne:\"$Sreact.suspense\"\n10:I[897367,[\"/d96012bcfc98706a.js\",\"/963c71eec1d89c3f.js\"],\"ViewportBoundary\"]\n12:I[897367,[\"/d96012bcfc98706a.js\",\"/963c71eec1d89c3f.js\"],\"MetadataBoundary\"]\n14:I[168027,[\"/d96012bcfc98706a.js\",\"/963c71eec1d89c3f.js\"],\"default\"]\n15:I[324829,[\"/c12c1b7aaaaeefb8.js\",\"/0e7cf32189003ac1.js\",\"/f0bdef8d41388e84.js\",\"/0b4a150b50b2f253.js\",\"/bfd9512d2a03da43.js\"],\"default\"]\n:HL[\"/2473c16c0c2f6b5f.css\",\"style\"]\n:HL[\"/2b5b79d1d607e281.css\",\"style\"]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"https://fonts.googleapis.com/css2?family=Norican\u0026display=swap\",\"style\"]\n:HL[\"https://fonts.googleapis.com/css2?family=Dangrek\u0026family=Roboto\u0026family=Pacifico\u0026family=Montserrat\u0026family=Ovo\u0026family=Kantumruy+Pro\u0026family=Great+Vibes\u0026family=Dancing+Script\u0026family=Moul\u0026family=Battambang\u0026family=Fasthand\u0026family=Moulpali\u0026family=Wix+Madefor+Display:wght@400;500;600;700\u0026display=swap\",\"style\"]\n:HL[\"https://fonts.googleapis.com/css2?family=Inter:wght@400;700\u0026display=swap\",\"style\"]\n:HL[\"https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700\u0026display=swap\",\"style\"]\n:HL[\"https://fonts.googleapis.com/css2?family=Pacifico\u0026display=swap\",\"style\"]\n:HL[\"https://fonts.googleapis.com/css2?family=Delius\u0026display=swap\",\"style\"]\n:HL[\"https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer\u0026display=swap\",\"style\"]\n"])</script>
     <script>self.__next_f.push([1, "0:{\"P\":null,\"b\":\"q3Fv04lBmJ7Bt_msdrR4O\",\"c\":[\"\",\"invitation\",\"cml6hcrc40009jv04m1j24ymp?i=cml6ilia00001jp04lu9c5sr0\"],\"q\":\"?i=cml6ilia00001jp04lu9c5sr0\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"invitation\",{\"children\":[[\"slug\",\"cml6hcrc40009jv04m1j24ymp\",\"d\"],{\"children\":[\"__PAGE__?{\\\"i\\\":\\\"cml6ilia00001jp04lu9c5sr0\\\"}\",{}]}]}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/2473c16c0c2f6b5f.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/2b5b79d1d607e281.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/c12c1b7aaaaeefb8.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/0e7cf32189003ac1.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/f0bdef8d41388e84.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-3\",{\"src\":\"/0b4a150b50b2f253.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"km\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"meta\",null,{\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"}],[\"$\",\"meta\",null,{\"name\":\"apple-mobile-web-app-capable\",\"content\":\"yes\"}],[\"$\",\"meta\",null,{\"name\":\"apple-mobile-web-app-status-bar-style\",\"content\":\"default\"}],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Norican\u0026display=swap\",\"rel\":\"stylesheet\"}],[\"$\",\"link\",null,{\"rel\":\"stylesheet\",\"href\":\"https://fonts.googleapis.com/css2?family=Dangrek\u0026family=Roboto\u0026family=Pacifico\u0026family=Montserrat\u0026family=Ovo\u0026family=Kantumruy+Pro\u0026family=Great+Vibes\u0026family=Dancing+Script\u0026family=Moul\u0026family=Battambang\u0026family=Fasthand\u0026family=Moulpali\u0026family=Wix+Madefor+Display:wght@400;500;600;700\u0026display=swap\"}],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Inter:wght@400;700\u0026display=swap\",\"rel\":\"stylesheet\"}],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700\u0026display=swap\",\"rel\":\"stylesheet\"}],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Pacifico\u0026display=swap\",\"rel\":\"stylesheet\"}],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Delius\u0026display=swap\",\"rel\":\"stylesheet\"}],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer\u0026display=swap\",\"rel\":\"stylesheet\"}]]}],[\"$\",\"body\",null,{\"className\":\"antialiased\",\"children\":[[\"$\",\"$L2\",null,{}],[\"$\",\"$L3\",null,{}],[\"$\",\"$L4\",null,{\"children\":[[\"$\",\"$L5\",null,{\"position\":\"top-center\"}],[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$7\",\"errorStyles\":[],\"errorScripts\":[[\"$\",\"script\",\"script-0\",{\"src\":\"/4e579059fefd4b34.js\",\"async\":true}],[\"$\",\"script\",\"script-1\",{\"src\":\"/10db85504df30485.js\",\"async\":true}]],\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"$L9\",null,{}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],[\"$\",\"$La\",null,{\"gaId\":\"G-R40KBXVPF9\"}],[\"$\",\"$Lb\",null,{\"gtmId\":\"GTM-R40KBXVPF9\"}]]}]]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[\"$Lc\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/bfd9512d2a03da43.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$Ld\",null,{\"children\":[\"$\",\"$e\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@f\"}]}]]}],{},null,false,false]},null,false,false]},null,false,false]},null,false,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L10\",null,{\"children\":\"$L11\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$L12\",null,{\"children\":[\"$\",\"$e\",null,{\"name\":\"Next.Metadata\",\"children\":\"$L13\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$14\",[]],\"S\":false}\n"])</script>
@@ -1829,21 +1628,18 @@
 
     <!-- Leaf Fall Container -->
     <div id="leaf-fall-container" class="leaf-fall-container">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 15s; --delay: 0s; --left: 10%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 18s; --delay: 7s; --left: 20%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 16s; --delay: 1s; --left: 30%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 17s; --delay: 4s; --left: 45%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 19s; --delay: 3s; --left: 50%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 15s; --delay: 5s; --left: 20%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 17s; --delay: 5.5s; --left: 55%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 18s; --delay: 2.5s; --left: 11%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 16s; --delay: 4.5s; --left: 51%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 19s; --delay: 5.5s; --left: 15%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 17s; --delay: 3.5s; --left: 52%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 18s; --delay: 2.5s; --left: 64%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 16s; --delay: 4.5s; --left: 75%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 19s; --delay: 1.5s; --left: 15%;">
-        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf" style="--duration: 17s; --delay: 3.5s; --left: 85%;">
+        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf"
+            style="--duration: 15s; --delay: 0s; --left: 34%;">
+        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf"
+            style="--duration: 18s; --delay: 7s; --left: 26%;">
+        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf"
+            style="--duration: 16s; --delay: 1s; --left: 39%;">
+        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf"
+            style="--duration: 17s; --delay: 14s; --left: 45%;">
+        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf"
+            style="--duration: 19s; --delay: 3s; --left: 29%;">
+        <img class="leaf-fall" src="./images/leaf2.png" alt="Falling Leaf"
+            style="--duration: 15s; --delay: 5s; --left: 59%;">
     </div>
 
     <!-- Butterfly Container -->
@@ -1861,6 +1657,192 @@
         <div class="butterfly"></div>
         <div class="butterfly"></div>
     </div>
+
+    <script>
+        // ========== VIDEO SPLASH SCREEN ==========
+        // Handle video completion and transition to main page
+        const videoSplash = document.getElementById('video-splash');
+        const introVideo = document.getElementById('intro-video');
+
+        // Set video playback speed to 1.5x
+        introVideo.playbackRate = 2;
+
+        // Function to trigger animations after video splash ends
+        function triggerMainContentAnimations() {
+            document.body.classList.add('video-splash-ended');
+        }
+
+        // Listen for video end event
+        introVideo.addEventListener('ended', function () {
+            // Fade out the video splash screen
+            videoSplash.classList.add('fade-out');
+
+            // After fade animation completes, hide the splash screen
+            setTimeout(function () {
+                videoSplash.style.display = 'none';
+
+                // Trigger animations for main content
+                triggerMainContentAnimations();
+
+                // Scroll to main content if needed
+                const mainSection = document.getElementById('main');
+                if (mainSection) {
+                    mainSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 1000); // Match the fade-out animation duration
+        });
+
+        // Optional: Add a skip button for users
+        // document.addEventListener('click', function skipVideo(event) {
+        //     if (videoSplash.style.display !== 'none' && event.target !== introVideo) {
+        //         videoSplash.classList.add('fade-out');
+        //         setTimeout(function() {
+        //             videoSplash.style.display = 'none';
+        //             // Trigger animations when skipping video
+        //             triggerMainContentAnimations();
+        //         }, 1000);
+        //         document.removeEventListener('click', skipVideo);
+        //     }
+        // });
+
+        // ========== AUDIO/MUSIC PLAYBACK ==========
+        // Chrome Autoplay Policy compliant: muted autoplay + unmute on user interaction
+        const audio = document.getElementById('welcome-music');
+
+        // Muted autoplay happens via HTML attribute, but ensure it plays
+        const playMuted = () => {
+            audio.muted = true;
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log('Autoplay failed:', error);
+                });
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', playMuted);
+        } else {
+            playMuted();
+        }
+
+        // Unmute on first user interaction (click, touch, or scroll)
+        const unmute = () => {
+            audio.muted = false;
+        };
+        document.addEventListener('click', unmute, { once: true });
+        document.addEventListener('touchstart', unmute, { once: true });
+
+        // ========== MUSIC TOGGLE BUTTON ==========
+        const musicToggle = document.getElementById('music-toggle');
+        const audioElement = document.getElementById('welcome-music');
+        const unmuteIcon = document.getElementById('music-icon-unmuted');
+        const muteIcon = document.getElementById('music-icon-muted');
+
+        // Update button state based on audio muted status
+        const updateButtonState = () => {
+            if (audioElement.muted) {
+                unmuteIcon.style.opacity = '0';
+                muteIcon.style.opacity = '1';
+            } else {
+                unmuteIcon.style.opacity = '1';
+                muteIcon.style.opacity = '0';
+            }
+        };
+
+        musicToggle.addEventListener('click', function () {
+            audioElement.muted = !audioElement.muted;
+            if (!audioElement.paused === false) {
+                audioElement.play().catch(() => { });
+            }
+            updateButtonState();
+        });
+
+        // Initialize button state on load
+        updateButtonState();
+
+        // ========== GUEST NAME FROM URL ==========
+        // Update guest name from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const guestName = urlParams.get('i') ? decodeURIComponent(urlParams.get('i').split('?')[urlParams.get('i').split('?').length - 1] || '') : '';
+
+        // Check if there's a guest name in the URL
+        if (guestName && guestName.trim()) {
+            document.getElementById('guest-name').textContent = guestName.trim();
+        } else {
+            // Try to get from query string directly (e.g., ?Mr. A)
+            const queryString = window.location.search.substring(1);
+            if (queryString && queryString !== 'i=' && !queryString.includes('=')) {
+                document.getElementById('guest-name').textContent = decodeURIComponent(queryString);
+            }
+        }
+
+        // ========== GALLERY MODAL FUNCTIONALITY ==========
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        const prevImageBtn = document.getElementById('prevImage');
+        const nextImageBtn = document.getElementById('nextImage');
+        const imageCounter = document.getElementById('imageCounter');
+        const galleryImages = document.querySelectorAll('.gallery-image');
+
+        const imageArray = Array.from(galleryImages).map(img => img.src);
+        let currentImageIndex = 0;
+
+        function openModal(index) {
+            currentImageIndex = index;
+            modalImage.src = imageArray[currentImageIndex];
+            imageCounter.textContent = currentImageIndex + 1;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModalFunc() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % imageArray.length;
+            modalImage.src = imageArray[currentImageIndex];
+            imageCounter.textContent = currentImageIndex + 1;
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + imageArray.length) % imageArray.length;
+            modalImage.src = imageArray[currentImageIndex];
+            imageCounter.textContent = currentImageIndex + 1;
+        }
+
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', function () {
+                openModal(index);
+            });
+        });
+
+        closeModal.addEventListener('click', closeModalFunc);
+        nextImageBtn.addEventListener('click', showNextImage);
+        prevImageBtn.addEventListener('click', showPrevImage);
+
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                closeModalFunc();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (modal.classList.contains('hidden')) return;
+
+            if (e.key === 'Escape') {
+                closeModalFunc();
+            } else if (e.key === 'ArrowRight') {
+                showNextImage();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevImage();
+            }
+        });
+    </script>
 
 </body>
 
