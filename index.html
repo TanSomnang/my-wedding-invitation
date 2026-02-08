@@ -1730,8 +1730,6 @@
         const unmute = () => {
             audio.muted = false;
         };
-        document.addEventListener('click', unmute, { once: true });
-        document.addEventListener('touchstart', unmute, { once: true });
 
         // ========== MUSIC TOGGLE BUTTON ==========
         const musicToggle = document.getElementById('music-toggle');
