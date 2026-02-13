@@ -1486,6 +1486,10 @@
         height: calc(var(--spacing)*130)
     }
 
+    .h-140 {
+        height: calc(var(--spacing)*140)
+    }
+
     .h-150 {
         height: calc(var(--spacing)*150)
     }
