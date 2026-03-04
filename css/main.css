@@ -141,6 +141,7 @@
         --color-primary: #468ad8;
         --color-gold: #d7bb83;
         --color-gold-light: #fad6a5;
+        --color-gold-dark: rgb(176, 142, 79);
         --color-blue-soft: #7ca7d6;
         --color-blue-muted: #9db7d1;
         --animate-slide-down: slideDown 1s ease-out;
@@ -252,22 +253,23 @@
 
     .dad-names, .dad-names * {
         font-family: "Moulpali", sans-serif !important;
-        color: rgb(245, 184, 15) !important;
+        /* color: rgb(245, 184, 15) !important; */
+        color: rgb(176, 142, 79) !important;
         font-size: 14px !important;
         /* gap: 100px; */
-        -webkit-text-stroke: 0.8px rgb(245, 184, 15); /* Chrome, Safari, Edge */
+        -webkit-text-stroke: 0.8px rgb(176, 142, 79); /* Chrome, Safari, Edge */
         margin: 0; /* removes default vertical space */
         padding: 0;
-        margin-top: 20px;
         line-height: 1; /* tighter vertical spacing */
     }
 
     .mom-names, .mom-names * {
         font-family: "Moulpali", sans-serif !important;
-        color: rgb(245, 184, 15) !important;
+        /* color: rgb(245, 184, 15) !important; */
+        color: rgb(176, 142, 79) !important;
         font-size: 14px !important;
         /* gap: 100px; */
-        -webkit-text-stroke: 0.8px rgb(245, 184, 15); /* Chrome, Safari, Edge */
+        -webkit-text-stroke: 0.8px rgb(176, 142, 79); /* Chrome, Safari, Edge */
         margin: 0; /* removes default vertical space */
         margin-top: 10px;
         padding: 0;
@@ -1498,6 +1500,10 @@
 
     .text-gold-light {
         color: var(--color-gold-light)
+    }
+
+    .text-gold-dark {
+        color: var(--color-gold-dark)
     }
 
     .text-gray-400 {
