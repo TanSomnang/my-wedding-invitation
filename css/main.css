@@ -278,11 +278,17 @@
     }
 
     .wedding-names2, .wedding-names2 * {
-        font-family: "Moul", sans-serif !important;
+        font-family: "Moulpali", sans-serif !important;
         color: rgb(176, 142, 79) !important;
         margin: 0; /* removes default vertical space */
         padding: 0;
-        margin-top: 20px;
+    }
+
+    .wedding-names3, .wedding-names3 * {
+        font-family: "Moul", sans-serif !important;
+        color: rgb(176, 142, 79);
+        margin: 0; /* removes default vertical space */
+        padding: 0;
     }
 
     button,input,select,optgroup,textarea {
@@ -2124,6 +2130,15 @@
     color: #0000;
     text-shadow: 0 2px 4px #0000001a;
     background: linear-gradient(90deg,#d7bb83,#f3e5ab,#fff,#f3e5ab,#d7bb83) 0 0/200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: 4s linear infinite shine
+}
+
+.text-shine-dark {
+    color: #0000;
+    text-shadow: 0 2px 4px #0000001a;
+    background: linear-gradient(90deg,#d7bb83,#f3e5ab,#b08e4f,#f3e5ab,#d7bb83) 0 0/200%;
     -webkit-background-clip: text;
     background-clip: text;
     animation: 4s linear infinite shine
